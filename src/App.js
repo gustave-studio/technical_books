@@ -5,16 +5,13 @@ import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
 import Top from './components/Top';
+// import React, { useState, useEffect } from 'react';
 
 const App = () => {
-  axios.get('http://localhost:3001/api/recommended_books').then((response) => {
-    console.log(response.data.recommended_books[0].url)
-  });
-
   return (
     <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<Top/>} />
+      <Route exact path="/" element={<Top />} />
     </Routes>
   </BrowserRouter>
   );
