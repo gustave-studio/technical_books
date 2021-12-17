@@ -1,87 +1,117 @@
 import React, { useState, useEffect } from 'react';
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-import Card from '@material-ui/core/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import Grid from '@material-ui/core/Grid';
-
-
 import axios from 'axios';
+import RankingBox from './RankingBox';
+import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
 
-const Top = () => {
-    const [booksUrl, setBooksUrl] = useState([]);
-  
-    useEffect(() => {
-      const books = axios.get('http://localhost:3001/api/recommended_books')
-  
-      books.then((response) => {
-        setBooksUrl(response.data.recommended_books.slice(0, 10).map((item) => {return item.url}))
-      })
-    }, [])
-    // https://www.amazon.co.jp/dp/477416366X/?tag=gustave02-22
-    // https://images-na.ssl-images-amazon.com/images/P/477416366X.09.MZZZZZZZ
-    // axios.get('http://localhost:3001/api/recommended_books').then((response) => {
-    //     response.data.recommended_books.slice(0, 10).map((item) => {
-    //       console.log(item.url);
-    //     })
-    //   })
+const Top = function () {
+  const [monthlyRankings, setMonthlyRankings] = useState([]);
+  const [threeMonthlyRankings, setThreeMonthlyRankings] = useState([]);
+  const [sixMonthlyRankings, setSixMonthlyRankings] = useState([]);
+  const [itEngineerBooksAwardsTechnologyRankings, setItEngineerBooksAwardsTechnologyRankings] = useState([]);
+  const [itEngineerBooksAwardsBusinessRankings, setItEngineerBooksAwardsBusinessRankings] = useState([]);
 
-    // const colorArray = ["1位", "2位", "3位", "4位", "5位", "6位", "7位", "8位", "9位", "10位"];
-    
-    const colorComponent = booksUrl.map((url, key) => {
-        const pattern = /[^0-9A-Z]([0-9A-Z]{10})([^0-9A-Z]|$)/;
-        const asin = url.match(pattern)[1]
-        console.log(asin);
-        return (
-        <>
-        <div key={key}>
-        {key + 1}位
-            <div className="explanation">
-            <a href={`https://amazon.co.jp/dp/${asin}?tag=gustave02-22`}>
-              <Card style={{ width: "120px", height: "160px", marginRight: "5px", textAlign: 'center', backgroundImage: `url(https://images-na.ssl-images-amazon.com/images/P/${asin}.09.MZZZZZZZ)`, backgroundRepeat: "no-repeat", backgroundPosition: "center top"}} >
-                <CardContent>
-                <Typography
-                    variant="string"
-                    component="div"
-                    style={{ fontSize: '18px' }}
-                >
-                  <div>
-                      {/* <a href={`https://amazon.co.jp/dp/${asin}?tag=gustave02-22`}><img src={`https://images-na.ssl-images-amazon.com/images/P/${asin}.09.MZZZZZZZ`} alt="TAG index" border="0" /></a> */}
-                  </div>
-                </Typography>
-                </CardContent>
-              </Card>
-              </a>
-            </div>
-        </div>
-        </>
-        )
+  useEffect(() => {
+    console.log('-----!!!!');
+    console.log(process.env.REACT_APP_Monthly_Rankings_URL);
+    const monthlyRankingsData = axios.get(process.env.REACT_APP_MONTHLY_RANKINGS_URL);
+    const threeMonthlyRankingsData = axios.get(process.env.REACT_APP_THREE_MONTHLY_RANKINGS_URL);
+    const sixMonthlyRankingsData = axios.get(process.env.REACT_APP_SIX_MONTHLY_RANKINGS_URL);
+    const itEngineerBooksAwardsTechnology = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_TECHNOLOGY_URL);
+    const itEngineerBooksAwardsBusiness = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_BUSINESS_URL);
+
+    monthlyRankingsData.then((response) => {
+      // console.log(response.data.monthly_rankings);
+      setMonthlyRankings(response.data.monthly_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
     });
 
+    threeMonthlyRankingsData.then((response) => {
+      // console.log(response.data.monthly_rankings);
+      setThreeMonthlyRankings(response.data.three_months_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
+    });
 
+    sixMonthlyRankingsData.then((response) => {
+      // console.log(response.data.monthly_rankings);
+      setSixMonthlyRankings(response.data.six_months_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
+    });
 
-    return (
+    itEngineerBooksAwardsTechnology.then((response) => {
+      setItEngineerBooksAwardsTechnologyRankings(response.data.it_engineer_books_awards.map((item) => ({ award: item.award, asin: item.asin })));
+    });
 
-  <div className="container">
-    <h1>技術書おすすめ<br/>ランキング</h1>
+    itEngineerBooksAwardsBusiness.then((response) => {
+      setItEngineerBooksAwardsBusinessRankings(response.data.it_engineer_books_awards.map((item) => ({ award: item.award, asin: item.asin })));
+    });
+  }, []);
 
-    <Grid container>
-      <Grid item xs={1} />
-      <Grid item xs={10}>
-      <h2>今週のQiita集計<br />ランキングTOP10</h2>
-      <div style={{ display: "flex", overflowX: "auto" }}>{colorComponent}</div>
-      <br />
-      <h2>今月のQiita集計<br />ランキングTOP10</h2>
-      <div style={{ display: "flex", overflowX: "auto" }}>{colorComponent}</div>
-      <br />
-      <h2>3ヶ月間のQiita集計<br />ランキングTOP10</h2>
-      <div style={{ display: "flex", overflowX: "auto" }}>{colorComponent}</div>
+  return (
+
+    <div className="container">
+      <div className="title">
+        <h1>
+          技術書おすすめ
+          <br />
+          ランキング
+        </h1>
+      </div>
+
+      <Grid container>
+        <Grid item xs={1} />
+        <Grid item xs={10}>
+          <div className="ranking_header">
+            <h1>
+              Qiitaで引用されている
+              <br />
+              技術書ランキング
+            </h1>
+          </div>
+          <div className="ranking_container">
+            <h2>最近引用された技術書TOP10</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              <RankingBox rankingData={monthlyRankings} />
+            </div>
+            <hr />
+          </div>
+          <div className="ranking_container">
+            <h2>3ヶ月間TOP10</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              <RankingBox rankingData={threeMonthlyRankings} />
+            </div>
+            <hr />
+          </div>
+          <div className="ranking_container">
+            <h2>6ヶ月間TOP10</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              <RankingBox rankingData={sixMonthlyRankings} />
+            </div>
+          </div>
+          <div className="ranking_header">
+            <h1>
+              翔英社
+              <br />
+              ITエンジニア本大賞2021
+            </h1>
+          </div>
+          <div className="ranking_container">
+            <h2>技術書</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsTechnologyRankings} />
+            </div>
+            <hr />
+          </div>
+          <div className="ranking_container">
+            <h2>ビジネス</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} />
+            </div>
+            <hr />
+          </div>
+        </Grid>
+        <Grid item xs={1} />
       </Grid>
-      <Grid item xs={1} />
-    </Grid>
-  </div>
-);
-    }
+    </div>
+  );
+};
 
 export default Top;
