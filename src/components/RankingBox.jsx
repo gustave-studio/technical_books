@@ -14,8 +14,8 @@ const RankingBox = function (props) {
   return (
     <>
 
-      { rankingData.map((ranking) => (
-        <div className="ranking_item">
+      { rankingData.map((ranking, key) => (
+        <div className="ranking_item" key={key}>
           <h3>
             {ranking.ranking}
             位
@@ -47,7 +47,12 @@ const RankingBox = function (props) {
 };
 
 RankingBox.propTypes = {
-  rankingData: PropTypes.objectOf.isRequired,
+  rankingData: PropTypes.arrayOf(
+    PropTypes.PropTypes.shape({
+      ranking: PropTypes.number,
+      asin: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default RankingBox;

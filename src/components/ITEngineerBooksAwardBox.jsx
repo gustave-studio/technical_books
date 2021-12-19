@@ -66,7 +66,12 @@ const ITEngineerBooksAwardBox = function (props) {
 };
 
 ITEngineerBooksAwardBox.propTypes = {
-  rankingData: PropTypes.objectOf.isRequired,
+  rankingData: PropTypes.arrayOf(
+    PropTypes.PropTypes.shape({
+      ranking: PropTypes.number,
+      asin: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default ITEngineerBooksAwardBox;
