@@ -19,5 +19,6 @@ module.exports = {
   ],
   rules: {
     'max-len': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
