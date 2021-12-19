@@ -182,3 +182,12 @@ body::before {
 
   display: block;
 }
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #333333;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
