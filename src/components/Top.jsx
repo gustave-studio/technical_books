@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import RankingBox from './RankingBox';
 import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
+import Footer from './Footer';
 
 const Top = function () {
   const [monthlyRankings, setMonthlyRankings] = useState([]);
@@ -13,8 +14,6 @@ const Top = function () {
   const [itEngineerBooksAwardsBusinessRankings, setItEngineerBooksAwardsBusinessRankings] = useState([]);
 
   useEffect(() => {
-    console.log('-----!!!!');
-    console.log(process.env.REACT_APP_Monthly_Rankings_URL);
     const monthlyRankingsData = axios.get(process.env.REACT_APP_MONTHLY_RANKINGS_URL);
     const threeMonthlyRankingsData = axios.get(process.env.REACT_APP_THREE_MONTHLY_RANKINGS_URL);
     const sixMonthlyRankingsData = axios.get(process.env.REACT_APP_SIX_MONTHLY_RANKINGS_URL);
@@ -110,6 +109,7 @@ const Top = function () {
         </Grid>
         <Grid item xs={1} />
       </Grid>
+      <Footer />
     </div>
   );
 };
