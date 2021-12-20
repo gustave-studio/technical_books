@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+import { FaSpinner } from 'react-icons/fa';
 import RankingBox from './RankingBox';
 import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
 import Footer from './Footer';
+import HamburgerMenu from './HamburgerMenu';
 
 const Top = function () {
   const [monthlyRankings, setMonthlyRankings] = useState([]);
@@ -48,10 +50,11 @@ const Top = function () {
 
     <div className="container">
       <div className="title">
+        <HamburgerMenu width={250} />
         <h1>
-          技術書おすすめ
+          技術書
           <br />
-          ランキング
+          おすすめまとめ
         </h1>
       </div>
 
@@ -60,29 +63,29 @@ const Top = function () {
         <Grid item xs={10}>
           <div className="ranking_header">
             <h1>
-              Qiitaで引用されている
+              Qiitaの記事から集計した
               <br />
               技術書ランキング
             </h1>
           </div>
           <div className="ranking_container">
-            <h2>最近引用された技術書TOP10</h2>
+            <h2>最近紹介された技術書TOP10</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              <RankingBox rankingData={monthlyRankings} />
+              { monthlyRankings.length ? <RankingBox rankingData={monthlyRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
             <hr />
           </div>
           <div className="ranking_container">
-            <h2>3ヶ月間TOP10</h2>
+            <h2>3ヶ月間ランキングTOP10</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              <RankingBox rankingData={threeMonthlyRankings} />
+              { threeMonthlyRankings.length ? <RankingBox rankingData={threeMonthlyRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
             <hr />
           </div>
           <div className="ranking_container">
-            <h2>6ヶ月間TOP10</h2>
+            <h2>6ヶ月間ランキングTOP10</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              <RankingBox rankingData={sixMonthlyRankings} />
+              { sixMonthlyRankings.length ? <RankingBox rankingData={sixMonthlyRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
           </div>
           <div className="ranking_header">
@@ -95,14 +98,14 @@ const Top = function () {
           <div className="ranking_container">
             <h2>技術書</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsTechnologyRankings} />
+              { itEngineerBooksAwardsTechnologyRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsTechnologyRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
           </div>
           <div className="ranking_container">
             <h2>ビジネス</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} />
+              { itEngineerBooksAwardsBusinessRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
             <hr />
           </div>
