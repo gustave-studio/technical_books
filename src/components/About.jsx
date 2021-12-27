@@ -8,7 +8,6 @@ import HamburgerMenu from './HamburgerMenu';
 
 const About = function () {
   return (
-
     <div className="container">
       <div className="title">
         <HamburgerMenu width={250} />

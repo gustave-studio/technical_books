@@ -31,35 +31,31 @@ const ITEngineerBooksAwardBox = function (props) {
   return (
     <>
 
-      { rankingData.map((ranking) => {
-        console.log('----------');
-        console.log(ranking);
-        return (
-          <div className="ranking_item">
-            <h3>
-              {awardChecker(ranking.award)}
-            </h3>
-            <a href={`https://amazon.co.jp/dp/${ranking.asin}?tag=gustave02-22`}>
-              <Card style={{
-                width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(${imageURL(ranking.asin)})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
-              }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="string"
-                    component="div"
-                    style={{ fontSize: '18px' }}
-                  >
-                    <div>
-                      {/* <a href={`https://amazon.co.jp/dp/${asin}?tag=gustave02-22`}><img src={`https://images-na.ssl-images-amazon.com/images/P/${asin}.09.MZZZZZZZ`} alt="TAG index" border="0" /></a> */}
-                    </div>
-                  </Typography>
-                </CardContent>
-              </Card>
-            </a>
-          </div>
-        );
-      })}
+      { rankingData.map((ranking) => (
+        <div className="ranking_item">
+          <h3>
+            {awardChecker(ranking.award)}
+          </h3>
+          <a href={`https://amazon.co.jp/dp/${ranking.asin}?tag=gustave02-22`}>
+            <Card style={{
+              width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(${imageURL(ranking.asin)})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
+            }}
+            >
+              <CardContent>
+                <Typography
+                  variant="string"
+                  component="div"
+                  style={{ fontSize: '18px' }}
+                >
+                  <div>
+                    {/* <a href={`https://amazon.co.jp/dp/${asin}?tag=gustave02-22`}><img src={`https://images-na.ssl-images-amazon.com/images/P/${asin}.09.MZZZZZZZ`} alt="TAG index" border="0" /></a> */}
+                  </div>
+                </Typography>
+              </CardContent>
+            </Card>
+          </a>
+        </div>
+      ))}
 
     </>
   );

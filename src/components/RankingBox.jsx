@@ -9,8 +9,6 @@ const RankingBox = function (props) {
 
   // const pattern = /[^0-9A-Z]([0-9A-Z]{10})([^0-9A-Z]|$)/;
   // const isbn = url.match(pattern)[1]
-  console.log('---------');
-  console.log(typeof rankingData);
   return (
     <>
 
