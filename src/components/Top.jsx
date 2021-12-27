@@ -14,6 +14,7 @@ const Top = function () {
   const [sixMonthlyRankings, setSixMonthlyRankings] = useState([]);
   const [itEngineerBooksAwardsTechnologyRankings, setItEngineerBooksAwardsTechnologyRankings] = useState([]);
   const [itEngineerBooksAwardsBusinessRankings, setItEngineerBooksAwardsBusinessRankings] = useState([]);
+  const [editorialDepartmentRecommendationsRankings, setEditorialDepartmentRecommendationsRankings] = useState([]);
 
   useEffect(() => {
     const monthlyRankingsData = axios.get(process.env.REACT_APP_MONTHLY_RANKINGS_URL);
@@ -21,6 +22,7 @@ const Top = function () {
     const sixMonthlyRankingsData = axios.get(process.env.REACT_APP_SIX_MONTHLY_RANKINGS_URL);
     const itEngineerBooksAwardsTechnology = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_TECHNOLOGY_URL);
     const itEngineerBooksAwardsBusiness = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_BUSINESS_URL);
+    const editorialDepartmentRecommendations = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL);
 
     monthlyRankingsData.then((response) => {
       // console.log(response.data.monthly_rankings);
@@ -43,6 +45,10 @@ const Top = function () {
 
     itEngineerBooksAwardsBusiness.then((response) => {
       setItEngineerBooksAwardsBusinessRankings(response.data.it_engineer_books_awards.map((item) => ({ award: item.award, asin: item.asin })));
+    });
+
+    editorialDepartmentRecommendations.then((response) => {
+      setEditorialDepartmentRecommendationsRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin })));
     });
   }, []);
 
@@ -106,6 +112,18 @@ const Top = function () {
             <h2>ビジネス</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { itEngineerBooksAwardsBusinessRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
+            </div>
+            <hr />
+          </div>
+          <div className="ranking_header">
+            <h1>
+              編集部のおすすめ
+            </h1>
+          </div>
+          <div className="ranking_container">
+            <h2>技術書</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              { editorialDepartmentRecommendationsRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
           </div>
