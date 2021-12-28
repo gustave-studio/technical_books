@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
+import { FaAward } from 'react-icons/fa';
 
 const ITEngineerBooksAwardBox = function (props) {
   const { rankingData } = props;
@@ -12,11 +13,29 @@ const ITEngineerBooksAwardBox = function (props) {
 
   const awardChecker = (award) => {
     if (award === 'grand_prize') {
-      return '大賞';
+      return (
+        <div className="award">
+          <FaAward className="award_icon" />
+          大賞
+        </div>
+      );
     } if (award === 'special_prize') {
-      return '特別賞';
+      return (
+        <div className="award">
+          <FaAward className="award_icon" />
+          特別賞
+        </div>
+      );
     } if (award === 'grand_prize_and_special_prize') {
-      return '大賞 & 特別賞';
+      return (
+        <div>
+          <FaAward className="award_icon" />
+          大賞
+          &nbsp;
+          <FaAward className="award_icon" />
+          特別賞
+        </div>
+      );
     }
     return '';
   };
@@ -30,7 +49,6 @@ const ITEngineerBooksAwardBox = function (props) {
 
   return (
     <>
-
       { rankingData.map((ranking) => (
         <div className="ranking_item">
           <div className="award_container">

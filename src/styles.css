@@ -142,11 +142,16 @@
 .award_container {
   text-align: center;
   height: 30px;
-  line-height: 15px;
 }
 
 .award_container p {
   font-size: 14px;
+  font-weight: 600;
+}
+
+.award_icon {
+  color: #F7C147;
+  margin: 0px 0px 0px 0px;
 }
 
 .share {
