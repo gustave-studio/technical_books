@@ -113,7 +113,6 @@ const Top = function () {
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { itEngineerBooksAwardsBusinessRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
-            <hr />
           </div>
           <div className="ranking_header">
             <h1>
@@ -125,7 +124,6 @@ const Top = function () {
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { editorialDepartmentRecommendationsRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
-            <hr />
           </div>
         </Grid>
         <Grid item xs={1} />

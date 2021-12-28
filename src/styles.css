@@ -139,6 +139,16 @@
   font-size: 14px;
 }
 
+.award_container {
+  text-align: center;
+  height: 30px;
+  line-height: 15px;
+}
+
+.award_container p {
+  font-size: 14px;
+}
+
 .share {
   color: black;
   text-align: center;
@@ -271,10 +281,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 @keyframes spin {
-from {
-  transform: rotate(0deg);
-}
-to {
-  transform: rotate(360deg);
-}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

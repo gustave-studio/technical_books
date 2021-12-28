@@ -33,9 +33,11 @@ const ITEngineerBooksAwardBox = function (props) {
 
       { rankingData.map((ranking) => (
         <div className="ranking_item">
-          <h3>
-            {awardChecker(ranking.award)}
-          </h3>
+          <div className="award_container">
+            <p>
+              {awardChecker(ranking.award)}
+            </p>
+          </div>
           <a href={`https://amazon.co.jp/dp/${ranking.asin}?tag=gustave02-22`}>
             <Card style={{
               width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(${imageURL(ranking.asin)})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
