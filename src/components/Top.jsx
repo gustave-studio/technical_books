@@ -25,17 +25,14 @@ const Top = function () {
     const editorialDepartmentRecommendations = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL);
 
     monthlyRankingsData.then((response) => {
-      // console.log(response.data.monthly_rankings);
       setMonthlyRankings(response.data.monthly_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
     });
 
     threeMonthlyRankingsData.then((response) => {
-      // console.log(response.data.monthly_rankings);
       setThreeMonthlyRankings(response.data.three_months_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
     });
 
     sixMonthlyRankingsData.then((response) => {
-      // console.log(response.data.monthly_rankings);
       setSixMonthlyRankings(response.data.six_months_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
     });
 
