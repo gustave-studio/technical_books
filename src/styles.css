@@ -62,7 +62,7 @@
   padding: 10px 10px 10px 10px;
   font-size: 20px;
   background: #f53b57;
-  color: #fff;
+  color: #FAFAFA;
   box-sizing: border-box;
   line-height: 30px
 }
@@ -79,7 +79,7 @@
   top: 0;
   right: 0;
   border-width: 46px 20px 45px 0px;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent #FAFAFA transparent transparent;
   border-style: solid;
 }
 
