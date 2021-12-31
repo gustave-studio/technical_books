@@ -31,11 +31,12 @@
 }
 
 .title h1 {
-  color: #333333;
+  color: #FAFAFA;
   font-size: 36px;
   margin: 0px 0px 30px 0px;
   text-align: center;
-  font-family: 'Slabo';   
+  font-family: 'Slabo'; 
+  -webkit-text-stroke: 1px #333333;
 }
 
 .ranking_header {
