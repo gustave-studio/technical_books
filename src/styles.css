@@ -209,6 +209,10 @@ body::before {
   text-align: center;
 }
 
+.footer a {
+  color: #FFFFFF;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -281,6 +285,22 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background-color: #FAFAFA;
   padding: 20px;
   margin: auto;
+}
+
+.inquiry_container {
+  width: 85%;
+  background-color: #FAFAFA;
+  padding: 20px;
+  margin: auto;
+  text-align: center
+}
+
+.inquiry_container h2 {
+  text-align: center
+}
+
+.inquiry_input {
+  width: 200px;
 }
 
 .spinner {

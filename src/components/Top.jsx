@@ -55,6 +55,8 @@ const Top = function () {
       <div className="title">
         <HamburgerMenu width={250} />
         <h1>
+          プログラミング学習
+          <br />
           技術書
           <br />
           おすすめまとめ

@@ -7,6 +7,7 @@ import React from 'react';
 import Top from './components/Top';
 import About from './components/About';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Inquiry from './components/Inquiry';
 
 const App = function () {
   return (
@@ -19,6 +20,9 @@ const App = function () {
       </Routes>
       <Routes>
         <Route exact path="/privacy_policy" element={<PrivacyPolicy />} />
+      </Routes>
+      <Routes>
+        <Route exact path="/inquiry" element={<Inquiry />} />
       </Routes>
     </BrowserRouter>
   );

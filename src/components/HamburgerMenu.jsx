@@ -14,6 +14,9 @@ const HamburgerMenu = function () {
       <Link href="/privacy_policy" underline="none" style={{ color: '#333333', fontSize: '18px', marginBottom: '10px' }}>
         プライバシーポリシー
       </Link>
+      <Link href="/inquiry" underline="none" style={{ color: '#333333', fontSize: '18px', marginBottom: '10px' }}>
+        お問い合わせ
+      </Link>
     </Menu>
   );
 };
