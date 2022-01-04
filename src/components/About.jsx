@@ -4,20 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@mui/material/CardContent';
 import Footer from './Footer';
-import HamburgerMenu from './HamburgerMenu';
+import Header from './Header';
 
 const About = function () {
   return (
     <div className="container">
-      <div className="title">
-        <HamburgerMenu width={250} />
-        <h1>
-          技術書
-          <br />
-          おすすめまとめ
-          <br />
-        </h1>
-      </div>
+      <Header />
 
       <Grid container>
         <Grid item xs={1} />

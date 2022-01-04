@@ -5,8 +5,8 @@ import axios from 'axios';
 import { FaSpinner } from 'react-icons/fa';
 import RankingBox from './RankingBox';
 import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
+import Header from './Header';
 import Footer from './Footer';
-import HamburgerMenu from './HamburgerMenu';
 
 const Top = function () {
   const [monthlyRankings, setMonthlyRankings] = useState([]);
@@ -52,16 +52,7 @@ const Top = function () {
   return (
 
     <div className="container">
-      <div className="title">
-        <HamburgerMenu width={250} />
-        <h1>
-          プログラミング学習
-          <br />
-          技術書
-          <br />
-          おすすめまとめ
-        </h1>
-      </div>
+      <Header />
 
       <Grid container>
         <Grid item xs={1} />
