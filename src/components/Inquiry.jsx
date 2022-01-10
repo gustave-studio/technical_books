@@ -4,7 +4,8 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import ClearIcon from '@mui/icons-material/Clear';
 import { init, send } from 'emailjs-com';
-import HamburgerMenu from './HamburgerMenu';
+import Header from './Header';
+import Footer from './Footer';
 
 const Inquiry = function () {
   const [name, setName] = useState('');
@@ -58,15 +59,7 @@ const Inquiry = function () {
 
   return (
     <div className="container">
-      <div className="title">
-        <HamburgerMenu width={250} />
-        <h1>
-          技術書
-          <br />
-          おすすめまとめ
-          <br />
-        </h1>
-      </div>
+      <Header />
       <div className="inquiry_container">
         <h2>お問い合わせ</h2>
         <div>
@@ -156,6 +149,7 @@ const Inquiry = function () {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
