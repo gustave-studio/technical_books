@@ -18,7 +18,7 @@ const RankingBox = function (props) {
             {ranking.ranking}
             位
           </h3>
-          <a href={`https://amazon.co.jp/dp/${ranking.asin}?tag=gustave02-22`}>
+          <a href={`${process.env.REACT_APP_HOST}/details/${ranking.asin}`}>
             <Card style={{
               width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(https://images-na.ssl-images-amazon.com/images/P/${ranking.asin}.09.MZZZZZZZ)`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
             }}

@@ -8,6 +8,7 @@ import Top from './components/Top';
 import About from './components/About';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Inquiry from './components/Inquiry';
+import DetailsPage from './components/DetailsPage';
 
 const App = function () {
   return (
@@ -23,6 +24,12 @@ const App = function () {
       </Routes>
       <Routes>
         <Route exact path="/inquiry" element={<Inquiry />} />
+      </Routes>
+      <Routes>
+        <Route exact path="/details" element={<DetailsPage />} />
+      </Routes>
+      <Routes>
+        <Route path="/details/:asin" element={<DetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

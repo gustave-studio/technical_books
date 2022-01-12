@@ -56,7 +56,7 @@ const ITEngineerBooksAwardBox = function (props) {
               {awardChecker(ranking.award)}
             </p>
           </div>
-          <a href={`https://amazon.co.jp/dp/${ranking.asin}?tag=gustave02-22`}>
+          <a href={`https://amazon.co.jp/dp/${ranking.asin}`}>
             <Card style={{
               width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(${imageURL(ranking.asin)})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
             }}
