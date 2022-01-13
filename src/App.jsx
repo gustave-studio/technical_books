@@ -8,7 +8,7 @@ import Top from './components/Top';
 import About from './components/About';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Inquiry from './components/Inquiry';
-import DetailsPage from './components/DetailsPage';
+import QiitaDetailsPage from './components/QiitaDetailsPage';
 
 const App = function () {
   return (
@@ -26,10 +26,10 @@ const App = function () {
         <Route exact path="/inquiry" element={<Inquiry />} />
       </Routes>
       <Routes>
-        <Route exact path="/details" element={<DetailsPage />} />
+        <Route exact path="/qiita_details" element={<QiitaDetailsPage />} />
       </Routes>
       <Routes>
-        <Route path="/details/:asin" element={<DetailsPage />} />
+        <Route path="/qiita_details/:asin" element={<QiitaDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -39,6 +39,93 @@
   -webkit-text-stroke: 1px #333333;
 }
 
+.qiita_articles {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.qiita_articles h4 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Slabo';
+  font-size: 16px;
+  /* margin: 30px auto 10px; */
+  display: inline-block;
+  position: relative;
+  height: 90px;
+  line-height: 60px;
+  vertical-align: middle;
+  padding: 10px 10px 10px 0px;
+  background: #f53b57;
+  color: #FAFAFA;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+
+.qiita_articles h4::after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  border-width: 46px 20px 45px 0px;
+  border-color: transparent #FAFAFA transparent transparent;
+  border-style: solid;
+}
+
+.to_amazon {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+.to_amazon_button {
+  width: 120px;
+  height: 20px;
+  margin: 0 10px;
+  max-width: 120px;
+  font-size: 14px;
+  font-weight: 900;
+  background: #F3A847;
+  color: #FAFAFA;
+  padding: 5px;
+  text-align: center;
+}
+
+.to_amazon_button a {
+  color: #FAFAFA;
+  text-decoration: none;
+}
+
+.qiita_articles_list {
+  max-width: 600px;
+  margin: auto;
+}
+
+
+.qiita_articles_container {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Slabo';
+  background-color: #FAFAFA;
+  padding: 20px;
+  margin: auto;
+  text-align: left;
+  text-decoration: none;
+}
+
+.qiita_articles_container p {
+  color: #333333;
+}
+
+.qiita_articles_container a {
+  text-decoration-color:#333333
+}
+
 .ranking_header {
   width: 85%;
   margin: auto;
@@ -46,14 +133,10 @@
 
 .ranking_header h1 {
   width: 100%;
-  color: #333333;
   font-size: 30px;
   text-align: left;
   font-family: 'Slabo';   
-  margin: 30px 0px;                              
-}
-
-.ranking_header h1 {
+  margin: 30px 0px 10px 0px;
   display: inline-block;
   position: relative;
   height: 90px;
@@ -74,9 +157,6 @@
   width: 0px;
   height: 0px;
   z-index: 1;
-}
-  
-.ranking_header h1::after {
   top: 0;
   right: 0;
   border-width: 46px 20px 45px 0px;
@@ -128,6 +208,25 @@
 .ranking_item h3 {
   width: 50px;
   margin: 0px;
+}
+
+.to_details {
+  margin: auto;
+  width: 120px;
+  height: 20px;
+  margin: 10px 10px 0px;
+  max-width: 120px;
+  font-size: 14px;
+  font-weight: 900;
+  background: #F3A847;
+  color: #FAFAFA;
+  padding: 5px;
+  text-align: center;
+}
+
+.to_details a {
+  color: #FAFAFA;
+  text-decoration: none;
 }
 
 .container button {
