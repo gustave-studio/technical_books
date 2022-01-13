@@ -103,6 +103,7 @@
 .qiita_articles_list {
   max-width: 600px;
   margin: auto;
+  white-space: pre-wrap;
 }
 
 

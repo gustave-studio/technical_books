@@ -3,29 +3,28 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@mui/material/CardContent';
-// import Typography from '@mui/material/Typography';
-// import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
 
-const QiitaDetailsPage = function () {
+const DetailsPage = function () {
   const { asin } = useParams();
-  const [qiitaArticles, setQiitaArticles] = useState([]);
+  const [details, setDetails] = useState([]);
 
   useEffect(() => {
-    const qiitaArticlesList = axios.get(`${process.env.REACT_APP_RECOMMENDED_BOOKS}?asin=${asin}`);
-
-    console.log('url');
-    console.log(`${process.env.REACT_APP_RECOMMENDED_BOOKS}asin=${asin}`);
-    qiitaArticlesList.then((response) => {
-      setQiitaArticles(response.data.recommended_books.map((item) => (
-        { title: item.title, article_url: item.article_url }
-      )).slice(0, 10));
+    const recommendedBook = axios.get(`${process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL}?asin=${asin}`);
+    recommendedBook.then((response) => {
+      setDetails(
+        {
+          title: response.data.editorial_department_recommendations[0].title,
+          description: response.data.editorial_department_recommendations[0].description,
+        },
+      );
     });
   }, []);
-  console.log('qiitaArticles!!!!');
-  console.log(qiitaArticles);
+
+  console.log('details');
+  console.log(details);
 
   return (
     <div className="qiita_articles_container">
@@ -45,23 +44,22 @@ const QiitaDetailsPage = function () {
               <a href={`https://amazon.co.jp/dp/${asin}`}>Amazonで見る</a>
             </div>
           </div>
-          <div className="qiita_articles">
+          {/* <div className="qiita_articles">
             <h4>
-              この本を引用しているQiitaの記事
+              この本の詳細
             </h4>
+          </div> */}
+
+          <div>
+            <h2>
+              { details.title }
+            </h2>
           </div>
+
           <div className="qiita_articles_list">
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
-                { qiitaArticles.map((article, key) => (
-                  <div key={key}>
-                    <a href={article.article_url}>
-                      <p>
-                        {article.title}
-                      </p>
-                    </a>
-                  </div>
-                ))}
+                { details.description }
               </CardContent>
             </Card>
           </div>
@@ -73,4 +71,4 @@ const QiitaDetailsPage = function () {
   );
 };
 
-export default QiitaDetailsPage;
+export default DetailsPage;

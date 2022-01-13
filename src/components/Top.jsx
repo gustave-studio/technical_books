@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FaSpinner } from 'react-icons/fa';
 import RankingBox from './RankingBox';
 import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
+import EditorialDepartmentRecommendationsBox from './EditorialDepartmentRecommendationsBox';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -51,19 +52,19 @@ const Top = function () {
     });
 
     editorialDepartmentRecommendationsPython.then((response) => {
-      setEditorialDepartmentRecommendationsPythonRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin })));
+      setEditorialDepartmentRecommendationsPythonRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
     });
 
     editorialDepartmentRecommendationsRuby.then((response) => {
-      setEditorialDepartmentRecommendationsRubyRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin })));
+      setEditorialDepartmentRecommendationsRubyRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
     });
 
     editorialDepartmentRecommendationsJavaScript.then((response) => {
-      setEditorialDepartmentRecommendationsJavaScriptRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin })));
+      setEditorialDepartmentRecommendationsJavaScriptRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
     });
 
     editorialDepartmentRecommendationsOthers.then((response) => {
-      setEditorialDepartmentRecommendationsOthersRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin })));
+      setEditorialDepartmentRecommendationsOthersRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
     });
   }, []);
 
@@ -110,22 +111,22 @@ const Top = function () {
           <div className="ranking_container">
             <h2>Pythonのおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { editorialDepartmentRecommendationsPythonRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsPythonRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
+              { editorialDepartmentRecommendationsPythonRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsPythonRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
             <h2>Rubyのおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { editorialDepartmentRecommendationsRubyRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsRubyRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
+              { editorialDepartmentRecommendationsRubyRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsRubyRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
             <h2>JavaScriptのおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { editorialDepartmentRecommendationsJavaScriptRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsJavaScriptRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
+              { editorialDepartmentRecommendationsJavaScriptRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsJavaScriptRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
             <h2>その他のおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { editorialDepartmentRecommendationsOthersRankings.length ? <ITEngineerBooksAwardBox rankingData={editorialDepartmentRecommendationsOthersRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
+              { editorialDepartmentRecommendationsOthersRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsOthersRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
           </div>
           <div className="ranking_header">
