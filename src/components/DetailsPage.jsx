@@ -13,6 +13,8 @@ const DetailsPage = function () {
 
   useEffect(() => {
     const recommendedBook = axios.get(`${process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL}?asin=${asin}`);
+    console.log('detailsページデータ取得');
+
     recommendedBook.then((response) => {
       setDetails(
         {
@@ -23,11 +25,8 @@ const DetailsPage = function () {
     });
   }, []);
 
-  console.log('details');
-  console.log(details);
-
   return (
-    <div className="qiita_articles_container">
+    <div className="details_container">
       <Header />
       <Grid container>
         <Grid item xs={1} />
@@ -50,13 +49,13 @@ const DetailsPage = function () {
             </h4>
           </div> */}
 
-          <div>
+          <div className="details_title">
             <h2>
               { details.title }
             </h2>
           </div>
 
-          <div className="qiita_articles_list">
+          <div className="details">
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 { details.description }

@@ -15,17 +15,14 @@ const QiitaDetailsPage = function () {
 
   useEffect(() => {
     const qiitaArticlesList = axios.get(`${process.env.REACT_APP_RECOMMENDED_BOOKS}?asin=${asin}`);
+    console.log('qiita_detailsデータ取得');
 
-    console.log('url');
-    console.log(`${process.env.REACT_APP_RECOMMENDED_BOOKS}asin=${asin}`);
     qiitaArticlesList.then((response) => {
       setQiitaArticles(response.data.recommended_books.map((item) => (
         { title: item.title, article_url: item.article_url }
       )).slice(0, 10));
     });
   }, []);
-  console.log('qiitaArticles!!!!');
-  console.log(qiitaArticles);
 
   return (
     <div className="qiita_articles_container">

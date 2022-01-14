@@ -102,7 +102,7 @@
 
 .qiita_articles_list {
   max-width: 600px;
-  margin: auto;
+  margin: 20px auto;
   white-space: pre-wrap;
 }
 
@@ -125,6 +125,38 @@
 
 .qiita_articles_container a {
   text-decoration-color:#333333
+}
+
+.details_container {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Slabo';
+  background-color: #FAFAFA;
+  padding: 20px;
+  margin: auto;
+  text-align: left;
+  text-decoration: none;
+}
+
+.details_container p {
+  color: #333333;
+}
+
+.details_container a {
+  text-decoration-color:#333333
+}
+
+.details {
+  max-width: 600px;
+  margin: 20px auto;
+  white-space: pre-wrap;
+}
+
+.details_title {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
 .ranking_header {
