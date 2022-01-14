@@ -13,7 +13,7 @@ const DetailsPage = function () {
 
   useEffect(() => {
     const recommendedBook = axios.get(`${process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL}?asin=${asin}`);
-    console.log('detailsページaxios実行');
+    console.log('detailsページデータ取得');
 
     recommendedBook.then((response) => {
       setDetails(
