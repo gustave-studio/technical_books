@@ -49,12 +49,12 @@ const ITEngineerBooksAwardBox = function (props) {
 
   return (
     <>
-      { rankingData.map((ranking) => (
-        <div className="ranking_item">
+      { rankingData.map((ranking, key) => (
+        <div className="ranking_item" key={key}>
           <div className="award_container">
-            <p>
+            <div>
               {awardChecker(ranking.award)}
-            </p>
+            </div>
           </div>
           <a href={`https://amazon.co.jp/dp/${ranking.asin}`}>
             <Card style={{

@@ -32,10 +32,10 @@ const EditorialDepartmentRecommendationsBox = function (props) {
 
   return (
     <>
-      { rankingData.map((ranking) => (
-        <div className="ranking_item">
+      { rankingData.map((ranking, key) => (
+        <div className="ranking_item" key={key}>
           <div className="award_container" />
-          <a href={`https://amazon.co.jp/dp/${ranking.asin}`}>
+          <a href={`${process.env.REACT_APP_HOST}/details/${ranking.asin}`}>
             <Card style={{
               width: '125px', height: '160px', margin: 'auto', textAlign: 'center', backgroundImage: `url(${imageURL(ranking.asin)})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center top',
             }}
@@ -49,9 +49,9 @@ const EditorialDepartmentRecommendationsBox = function (props) {
               </CardContent>
             </Card>
           </a>
-          <p>
+          <div>
             {awardChecker(ranking)}
-          </p>
+          </div>
         </div>
       ))}
 
