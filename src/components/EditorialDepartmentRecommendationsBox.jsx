@@ -16,7 +16,7 @@ const EditorialDepartmentRecommendationsBox = function (props) {
         `${process.env.REACT_APP_HOST}/details/${ranking.asin}`
       );
     }
-    return '#!';
+    return `https://amazon.co.jp/dp/${ranking.asin}`;
   };
 
   const awardChecker = (ranking) => {
