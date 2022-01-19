@@ -130,7 +130,7 @@ const Top = function () {
               { editorialDepartmentRecommendationsJavaScriptRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsJavaScriptRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
-            <h2>モチベーションのおすすめ本</h2>
+            <h2>モチベーション | やる気 のおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { editorialDepartmentRecommendationsMotivationRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsMotivationRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
