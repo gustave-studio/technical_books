@@ -18,6 +18,7 @@ const Top = function () {
   const [editorialDepartmentRecommendationsPythonRankings, setEditorialDepartmentRecommendationsPythonRankings] = useState([]);
   const [editorialDepartmentRecommendationsRubyRankings, setEditorialDepartmentRecommendationsRubyRankings] = useState([]);
   const [editorialDepartmentRecommendationsJavaScriptRankings, setEditorialDepartmentRecommendationsJavaScriptRankings] = useState([]);
+  const [editorialDepartmentRecommendationsMotivationRankings, setEditorialDepartmentRecommendationsMotivationRankings] = useState([]);
   const [editorialDepartmentRecommendationsOthersRankings, setEditorialDepartmentRecommendationsOthersRankings] = useState([]);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Top = function () {
     const editorialDepartmentRecommendationsPython = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_PYTHON_URL);
     const editorialDepartmentRecommendationsRuby = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_RUBY_URL);
     const editorialDepartmentRecommendationsJavaScript = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_JAVASCRIPT_URL);
+    const editorialDepartmentRecommendationsMotivation = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_MOTIVATION_URL);
     const editorialDepartmentRecommendationsOthers = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_OTHERS_URL);
 
     monthlyRankingsData.then((response) => {
@@ -61,6 +63,10 @@ const Top = function () {
 
     editorialDepartmentRecommendationsJavaScript.then((response) => {
       setEditorialDepartmentRecommendationsJavaScriptRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
+    });
+
+    editorialDepartmentRecommendationsMotivation.then((response) => {
+      setEditorialDepartmentRecommendationsMotivationRankings(response.data.editorial_department_recommendations.map((item) => ({ award: item.award, asin: item.asin, description: item.description })));
     });
 
     editorialDepartmentRecommendationsOthers.then((response) => {
@@ -122,6 +128,11 @@ const Top = function () {
             <h2>JavaScriptのおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { editorialDepartmentRecommendationsJavaScriptRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsJavaScriptRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
+            </div>
+            <hr />
+            <h2>モチベーションのおすすめ本</h2>
+            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
+              { editorialDepartmentRecommendationsMotivationRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsMotivationRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
             </div>
             <hr />
             <h2>その他のおすすめ本</h2>
