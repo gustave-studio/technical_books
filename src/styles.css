@@ -24,10 +24,23 @@
 }
 
 .title {
+  width: 100%;
   height: 200px;
   background-image: url('https://technical-books.s3.ap-northeast-1.amazonaws.com/pc_cg.jpg');
   background-size: cover;
   background-position: center center;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
+}
+
+.footer a {
+  color: #FFFFFF;
 }
 
 .title h1 {
@@ -77,16 +90,14 @@
 }
 
 .to_amazon {
-  width: 100%;
+  width: 150px;
   margin: 0 auto;
-  max-width: 100px;
 }
 
 .to_amazon_button {
-  width: 120px;
+  width: 110px;
   height: 20px;
-  margin: 0 10px;
-  max-width: 120px;
+  margin: 0 auto;
   font-size: 14px;
   font-weight: 900;
   background: #F3A847;
@@ -128,7 +139,7 @@
 }
 
 .details_container {
-  width: 100%;
+  width: 85%;
   font-size: 16px;
   text-align: center;
   font-family: 'Slabo';
@@ -333,18 +344,6 @@ body::before {
   display: block;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  background-color: #333333;
-  padding: 10px;
-  color: #fff;
-  text-align: center;
-}
-
-.footer a {
-  color: #FFFFFF;
-}
 
 /* Position and sizing of burger button */
 .bm-burger-button {
