@@ -38,7 +38,7 @@ const RankingBox = function (props) {
           </a>
           <div className="to_details">
             <a href={`${process.env.REACT_APP_HOST}/qiita_details/${ranking.asin}`}>
-              詳細ページ
+              Qiitaの記事一覧
             </a>
           </div>
         </div>

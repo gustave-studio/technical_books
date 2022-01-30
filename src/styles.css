@@ -173,30 +173,42 @@
 
 .ranking_header {
   width: 85%;
-  margin: auto;
+  margin: 10px auto 10px;
 }
 
-.ranking_header h1 {
+.ranking_header_text {
   width: 100%;
-  font-size: 30px;
+  font-size: 24px;
   text-align: left;
   font-family: 'Slabo';   
-  margin: 30px 0px 10px 0px;
+  margin: auto;
+  padding: 10px;
   display: inline-block;
   position: relative;
   height: 90px;
-  line-height: 60px;
+  line-height: 27px;
   vertical-align: middle;
   text-align: left;
-  padding: 10px 10px 10px 10px;
   font-size: 20px;
   background: #f53b57;
   color: #FAFAFA;
   box-sizing: border-box;
-  line-height: 30px
+}
+
+.ranking_header_text h1 {
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+  font-family: 'Slabo';   
+  color: #FAFAFA;
+}
+
+.ranking_description {
+  width: 85%;
+  margin: auto;
 }
   
-.ranking_header h1::after {
+.ranking_header_text::after {
   position: absolute;
   content: '';
   width: 0px;
