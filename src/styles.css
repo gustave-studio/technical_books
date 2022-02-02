@@ -141,12 +141,10 @@
 .details_container {
   width: 85%;
   font-size: 16px;
-  text-align: center;
   font-family: 'Slabo';
   background-color: #FAFAFA;
   padding: 20px;
   margin: auto;
-  text-align: left;
   text-decoration: none;
 }
 
@@ -164,10 +162,26 @@
   white-space: pre-wrap;
 }
 
+.details p {
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 30px auto;
+  border-bottom: double 5px #F89902;
+}
+
 .target {
   max-width: 600px;
-  margin: 20px auto;
+  margin: 30px auto;
   white-space: pre-wrap;
+}
+
+.target p {
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 30px auto;
+  border-bottom: double 5px #F89902;
 }
 
 .details_title {
@@ -231,8 +245,7 @@
   width: 100%;
   color: #333333;
   font-size: 16px;
-  font-family: 'Slabo';
-  text-align: left;               
+  font-family: 'Slabo';           
 }
 
 .container h3 {
