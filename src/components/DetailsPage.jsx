@@ -31,6 +31,7 @@ const DetailsPage = function () {
     if (target) {
       return (
         <div className="target">
+          <p>この本の対象者</p>
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               { details.target }
@@ -71,11 +72,13 @@ const DetailsPage = function () {
               <h2>
                 { details.title }
               </h2>
+              <hr />
             </div>
 
             { displayTarget(details.target) }
 
             <div className="details">
+              <p>おすすめポイント</p>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                   { details.description }
