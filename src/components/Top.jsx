@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import { FaSpinner } from 'react-icons/fa';
 import RankingBox from './RankingBox';
-import ITEngineerBooksAwardBox from './ITEngineerBooksAwardBox';
 import EditorialDepartmentRecommendationsBox from './EditorialDepartmentRecommendationsBox';
 import Header from './Header';
 import Footer from './Footer';
@@ -13,8 +12,6 @@ const Top = function () {
   const [monthlyRankings, setMonthlyRankings] = useState([]);
   const [threeMonthlyRankings, setThreeMonthlyRankings] = useState([]);
   const [sixMonthlyRankings, setSixMonthlyRankings] = useState([]);
-  const [itEngineerBooksAwardsTechnologyRankings, setItEngineerBooksAwardsTechnologyRankings] = useState([]);
-  const [itEngineerBooksAwardsBusinessRankings, setItEngineerBooksAwardsBusinessRankings] = useState([]);
   const [editorialDepartmentRecommendationsPythonRankings, setEditorialDepartmentRecommendationsPythonRankings] = useState([]);
   const [editorialDepartmentRecommendationsRubyRankings, setEditorialDepartmentRecommendationsRubyRankings] = useState([]);
   const [editorialDepartmentRecommendationsJavaScriptRankings, setEditorialDepartmentRecommendationsJavaScriptRankings] = useState([]);
@@ -25,8 +22,6 @@ const Top = function () {
     const monthlyRankingsData = axios.get(process.env.REACT_APP_MONTHLY_RANKINGS_URL);
     const threeMonthlyRankingsData = axios.get(process.env.REACT_APP_THREE_MONTHLY_RANKINGS_URL);
     const sixMonthlyRankingsData = axios.get(process.env.REACT_APP_SIX_MONTHLY_RANKINGS_URL);
-    const itEngineerBooksAwardsTechnology = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_TECHNOLOGY_URL);
-    const itEngineerBooksAwardsBusiness = axios.get(process.env.REACT_APP_IT_ENGINEER_BOOKS_AWARDS_BUSINESS_URL);
     const editorialDepartmentRecommendationsPython = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_PYTHON_URL);
     const editorialDepartmentRecommendationsRuby = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_RUBY_URL);
     const editorialDepartmentRecommendationsJavaScript = axios.get(process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_JAVASCRIPT_URL);
@@ -43,14 +38,6 @@ const Top = function () {
 
     sixMonthlyRankingsData.then((response) => {
       setSixMonthlyRankings(response.data.six_months_rankings.map((item) => ({ ranking: item.ranking, asin: item.asin })));
-    });
-
-    itEngineerBooksAwardsTechnology.then((response) => {
-      setItEngineerBooksAwardsTechnologyRankings(response.data.it_engineer_books_awards.map((item) => ({ award: item.award, asin: item.asin })));
-    });
-
-    itEngineerBooksAwardsBusiness.then((response) => {
-      setItEngineerBooksAwardsBusinessRankings(response.data.it_engineer_books_awards.map((item) => ({ award: item.award, asin: item.asin })));
     });
 
     editorialDepartmentRecommendationsPython.then((response) => {
@@ -83,11 +70,16 @@ const Top = function () {
         <Grid item xs={1} />
         <Grid item xs={10}>
           <div className="ranking_header">
-            <h1>
-              Qiitaの記事から集計した
-              <br />
-              技術書ランキング
-            </h1>
+            <div className="ranking_header_text">
+              <h1>
+                Qiitaで紹介されている技術書ランキング
+              </h1>
+            </div>
+          </div>
+          <div className="ranking_description">
+            Qiitaの記事にリンクされている本を集計して作った独自のランキングです。
+            <br />
+            Qiitaの記事一覧から集計対象となった記事をご覧頂けます。
           </div>
           <div className="ranking_container">
             <h2>最近紹介された技術書TOP10</h2>
@@ -110,9 +102,15 @@ const Top = function () {
             </div>
           </div>
           <div className="ranking_header">
-            <h1>
-              編集部のおすすめ
-            </h1>
+            <div className="ranking_header_text">
+              <h1>
+                編集部のおすすめ
+              </h1>
+            </div>
+          </div>
+          <div className="ranking_description">
+            当サイトの編集部がおすすめする技術書です。
+            <br />
           </div>
           <div className="ranking_container">
             <h2>Pythonのおすすめ本</h2>
@@ -138,26 +136,6 @@ const Top = function () {
             <h2>その他のおすすめ本</h2>
             <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
               { editorialDepartmentRecommendationsOthersRankings.length ? <EditorialDepartmentRecommendationsBox rankingData={editorialDepartmentRecommendationsOthersRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
-            </div>
-          </div>
-          <div className="ranking_header">
-            <h1>
-              翔英社
-              <br />
-              ITエンジニア本大賞2021
-            </h1>
-          </div>
-          <div className="ranking_container">
-            <h2>技術書</h2>
-            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { itEngineerBooksAwardsTechnologyRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsTechnologyRankings} /> : <FaSpinner icon="spinner" className="spinner" />}
-            </div>
-            <hr />
-          </div>
-          <div className="ranking_container">
-            <h2>ビジネス</h2>
-            <div style={{ display: 'flex', overflowX: 'auto' }} className="rankings">
-              { itEngineerBooksAwardsBusinessRankings.length ? <ITEngineerBooksAwardBox rankingData={itEngineerBooksAwardsBusinessRankings} /> : <FaSpinner icon="spinner" className="spinner" /> }
             </div>
           </div>
         </Grid>

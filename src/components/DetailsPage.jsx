@@ -13,17 +13,35 @@ const DetailsPage = function () {
 
   useEffect(() => {
     const recommendedBook = axios.get(`${process.env.REACT_APP_EDITORIAL_DEPARTMENT_RECOMMENDATION_URL}?asin=${asin}`);
-    console.log('detailsページデータ取得');
 
     recommendedBook.then((response) => {
       setDetails(
         {
           title: response.data.editorial_department_recommendations[0].title,
           description: response.data.editorial_department_recommendations[0].description,
+          target: response.data.editorial_department_recommendations[0].target,
         },
       );
     });
   }, []);
+
+  const displayTarget = (target) => {
+    console.log('-----');
+    console.log(target);
+    if (target) {
+      return (
+        <div className="target">
+          <p>この本の対象者</p>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              { details.target }
+            </CardContent>
+          </Card>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <div className="container">
@@ -54,9 +72,13 @@ const DetailsPage = function () {
               <h2>
                 { details.title }
               </h2>
+              <hr />
             </div>
 
+            { displayTarget(details.target) }
+
             <div className="details">
+              <p>おすすめポイント</p>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                   { details.description }

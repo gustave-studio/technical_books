@@ -141,12 +141,10 @@
 .details_container {
   width: 85%;
   font-size: 16px;
-  text-align: center;
   font-family: 'Slabo';
   background-color: #FAFAFA;
   padding: 20px;
   margin: auto;
-  text-align: left;
   text-decoration: none;
 }
 
@@ -164,6 +162,28 @@
   white-space: pre-wrap;
 }
 
+.details p {
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 30px auto;
+  border-bottom: double 5px #F89902;
+}
+
+.target {
+  max-width: 600px;
+  margin: 30px auto;
+  white-space: pre-wrap;
+}
+
+.target p {
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 30px auto;
+  border-bottom: double 5px #F89902;
+}
+
 .details_title {
   width: 100%;
   max-width: 600px;
@@ -173,30 +193,42 @@
 
 .ranking_header {
   width: 85%;
-  margin: auto;
+  margin: 10px auto 10px;
 }
 
-.ranking_header h1 {
+.ranking_header_text {
   width: 100%;
-  font-size: 30px;
+  font-size: 24px;
   text-align: left;
   font-family: 'Slabo';   
-  margin: 30px 0px 10px 0px;
+  margin: auto;
+  padding: 10px;
   display: inline-block;
   position: relative;
   height: 90px;
-  line-height: 60px;
+  line-height: 27px;
   vertical-align: middle;
   text-align: left;
-  padding: 10px 10px 10px 10px;
   font-size: 20px;
   background: #f53b57;
   color: #FAFAFA;
   box-sizing: border-box;
-  line-height: 30px
+}
+
+.ranking_header_text h1 {
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+  font-family: 'Slabo';   
+  color: #FAFAFA;
+}
+
+.ranking_description {
+  width: 85%;
+  margin: auto;
 }
   
-.ranking_header h1::after {
+.ranking_header_text::after {
   position: absolute;
   content: '';
   width: 0px;
@@ -213,8 +245,7 @@
   width: 100%;
   color: #333333;
   font-size: 16px;
-  font-family: 'Slabo';
-  text-align: left;               
+  font-family: 'Slabo';           
 }
 
 .container h3 {
